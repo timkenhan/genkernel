@@ -1079,7 +1079,7 @@ determine_real_args() {
 			if [ ! -x "/lib/udev/scsi_id" ]
 			then
 				local error_msg="'/lib/udev/scsi_id' is required for --multipath but file does not exist or is not executable!"
-				error_msg+=" This file is usually provided by sys-fs/{eudev,udev} or sys-apps/systemd!"
+				error_msg+=" This file is usually provided by: sys-apps/systemd-utils, sys-fs/eudev, or sys-apps/systemd!"
 				gen_die "${error_msg}"
 			fi
 
