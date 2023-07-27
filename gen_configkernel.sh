@@ -231,7 +231,7 @@ set_initramfs_compression_method() {
 }
 
 config_kernel() {
-	local diff_cmd="$(which zdiff 2>/dev/null)"
+	local diff_cmd="$(type -P zdiff 2>/dev/null)"
 	if [ -z "${diff_cmd}" ]
 	then
 		print_warning 5 "zdiff is not available."

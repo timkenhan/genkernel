@@ -1121,13 +1121,13 @@ get_tar_cmd() {
 	local pcmd
 	if [[ "${archive_file}" == *.tar.bz2 ]]
 	then
-		pcmd=$(which pbzip2 2>/dev/null)
+		pcmd=$(type -P pbzip2 2>/dev/null)
 	elif [[ "${archive_file}" == *.tar.xz ]]
 	then
 		pcmd="'xz -T$(makeopts_jobs)'"
 	elif [[ "${archive_file}" == *.tar.gz ]]
 	then
-		pcmd=$(which pigz 2>/dev/null)
+		pcmd=$(type -P pigz 2>/dev/null)
 	fi
 
 	if [ -n "${pcmd}" ]

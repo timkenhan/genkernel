@@ -970,7 +970,7 @@ determine_real_args() {
 		then
 			if [[ "${CMD_BOOTFONT}" == "current" ]]
 			then
-				SETFONT_COMMAND="$(which setfont 2>/dev/null)"
+				SETFONT_COMMAND="$(type -P setfont 2>/dev/null)"
 				if [ -z "${SETFONT_COMMAND}" ]
 				then
 					gen_die "setfont not found. Is sys-apps/kbd installed?"
@@ -1138,15 +1138,15 @@ determine_real_args() {
 			fi
 		fi
 
-		DU_COMMAND="$(which du 2>/dev/null)"
+		DU_COMMAND="$(type -P du 2>/dev/null)"
 
-		LDDTREE_COMMAND="$(which lddtree 2>/dev/null)"
+		LDDTREE_COMMAND="$(type -P lddtree 2>/dev/null)"
 		if [ -z "${LDDTREE_COMMAND}" ]
 		then
 			gen_die "lddtree not found. Is app-misc/pax-utils installed?"
 		fi
 
-		CPIO_COMMAND="$(which cpio 2>/dev/null)"
+		CPIO_COMMAND="$(type -P cpio 2>/dev/null)"
 		if [[ -z "${CPIO_COMMAND}" ]]
 		then
 			# This will be fatal because we cpio either way
@@ -1191,7 +1191,7 @@ determine_real_args() {
 				gen_die "SANDBOX_ON=1 detected -- You cannot use --sandbox when already running within a sandbox!"
 			fi
 
-			SANDBOX_COMMAND="$(which sandbox 2>/dev/null)"
+			SANDBOX_COMMAND="$(type -P sandbox 2>/dev/null)"
 			if [ -z "${SANDBOX_COMMAND}" ]
 			then
 				gen_die "Sandbox not found. Is sys-apps/sandbox installed?"
@@ -1215,7 +1215,7 @@ determine_real_args() {
 
 	if isTrue "${need_tar}"
 	then
-		TAR_COMMAND="$(which tar 2>/dev/null)"
+		TAR_COMMAND="$(type -P tar 2>/dev/null)"
 		if [ -z "${TAR_COMMAND}" ]
 		then
 			gen_die "tar not found. Is app-arch/tar installed?"
@@ -1230,7 +1230,7 @@ determine_real_args() {
 		fi
 	fi
 
-	KMOD_CMD=$(which kmod 2>/dev/null)
+	KMOD_CMD=$(type -P kmod 2>/dev/null)
 	if ! isTrue "${BUILD_STATIC}"
 	then
 		if [ -z "${KMOD_CMD}" ]
