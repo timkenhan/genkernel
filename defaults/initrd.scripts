@@ -2791,16 +2791,16 @@ tuxonice_resume() {
 
 	if ! grep suspend_noui /proc/cmdline >/dev/null 2>&1
 	then
-		which suspend2ui_text >/dev/null 2>&1 && which suspend2ui_text > "${tuxonice_userui_program}"
-		which tuxoniceui_text >/dev/null 2>&1 && which tuxoniceui_text > "${tuxonice_userui_program}"
+		command -v suspend2ui_text >/dev/null 2>&1 && command -v suspend2ui_text > "${tuxonice_userui_program}"
+		command -v tuxoniceui_text >/dev/null 2>&1 && command -v tuxoniceui_text > "${tuxonice_userui_program}"
 
 		if [ -n "${splash_theme}" ]
 		then
 			ln -s /etc/splash/${splash_theme} /etc/splash/suspend2
 			ln -s /etc/splash/${splash_theme} /etc/splash/tuxonice
 
-			which suspend2ui_fbsplash >/dev/null 2>&1 && which suspend2ui_fbsplash > "${tuxonice_userui_program}"
-			which tuxoniceui_fbsplash >/dev/null 2>&1 && which tuxoniceui_fbsplash > "${tuxonice_userui_program}"
+			command -v suspend2ui_fbsplash >/dev/null 2>&1 && command -v suspend2ui_fbsplash > "${tuxonice_userui_program}"
+			command -v tuxoniceui_fbsplash >/dev/null 2>&1 && command -v tuxoniceui_fbsplash > "${tuxonice_userui_program}"
 		fi
 
 	fi
