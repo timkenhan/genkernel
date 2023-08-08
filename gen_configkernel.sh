@@ -167,7 +167,7 @@ set_initramfs_compression_method() {
 		local cfg_DECOMPRESS_SUPPORT=$(kconfig_get_opt "${kernel_config}" "CONFIG_RD_${COMPRESS_INITRD_TYPE}")
 		if [[ "${cfg_DECOMPRESS_SUPPORT}" != "y" ]]
 		then
-			gen_die "The kernel config '${kernel_config}' this initramfs will be build for cannot decompress set --compress-initrd-type '${COMPRESS_INITRD_TYPE}'!"
+			gen_die "The kernel config '${kernel_config}' this initramfs will be built for cannot decompress set --compress-initrd-type '${COMPRESS_INITRD_TYPE}'!"
 		fi
 
 		# If we are not building kernel, there is no point in
