@@ -216,7 +216,7 @@ install: all
 
 	install $(BUILD_DIR)/software.sh $(DESTDIR)/$(PREFIX)/share/genkernel/defaults
 
-	install -d $(DESTDIR)/$(MANDIR)
+	install -d $(DESTDIR)/$(MANDIR)/man8
 	install $(BUILD_DIR)/genkernel.8 $(DESTDIR)/$(MANDIR)/man8
 
 # No trailing blank lines please.
