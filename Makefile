@@ -34,7 +34,7 @@ FINAL_DEPS = genkernel.conf \
 	path_expander.py
 
 SOFTWARE = BCACHE_TOOLS \
- 	BOOST \
+	BOOST \
 	BTRFS_PROGS \
 	BUSYBOX \
 	COREUTILS \
@@ -219,3 +219,5 @@ install: all
 	install -d $(DESTDIR)/$(MANDIR)
 	install $(BUILD_DIR)/genkernel.8 $(DESTDIR)/$(MANDIR)/man8
 
+# No trailing blank lines please.
+# vim:ft=make:
