@@ -48,7 +48,7 @@ src_install() {
 		"${D}"/usr/sbin/* \
 		"${D}"/share
 
-	cp -a libdm/dm-tools/dmsetup.static"${D}"/usr/sbin/lvm \
+	cp -a libdm/dm-tools/dmsetup.static "${D}"/usr/sbin/lvm \
 		|| die "Failed to copy '${S}/tools/lvm.static' to '${D}/usr/sbin/lvm'!"
 
 	"${STRIP}" --strip-all "${D}"/usr/sbin/lvm \
