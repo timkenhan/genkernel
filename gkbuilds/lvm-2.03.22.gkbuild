@@ -48,13 +48,13 @@ src_install() {
 		"${D}"/usr/sbin/* \
 		"${D}"/share
 
-	cp -a libdm/dm-tools/dmsetup.static "${D}"/usr/sbin/lvm \
+	cp -a tools/lvm.static "${D}"/usr/sbin/lvm \
 		|| die "Failed to copy '${S}/tools/lvm.static' to '${D}/usr/sbin/lvm'!"
 
 	"${STRIP}" --strip-all "${D}"/usr/sbin/lvm \
 		|| die "Failed to strip '${D}/usr/sbin/lvm'!"
 
-	cp -a tools/dmsetup.static "${D}"/usr/sbin/dmsetup \
+	cp -a libdm/dm-tools/dmsetup.static "${D}"/usr/sbin/dmsetup \
 		|| die "Failed to copy '${S}/tools/dmsetup.static' to '${D}/usr/sbin/dmsetup'!"
 
 	"${STRIP}" --strip-all "${D}"/usr/sbin/dmsetup \
