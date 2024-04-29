@@ -54,8 +54,6 @@ src_install() {
 	"${STRIP}" --strip-all "${D}"/usr/sbin/lvm \
 		|| die "Failed to strip '${D}/usr/sbin/lvm'!"
 
-	# dmsetup.static has moved to libdm/dm-tools/ in 2.03, allow both locations for now
-	[ -f libdm/dm-tools/dmsetup.static ] && mv libdm/dm-tools/dmsetup.static tools/dmsetup.static
 	cp -a tools/dmsetup.static "${D}"/usr/sbin/dmsetup \
 		|| die "Failed to copy '${S}/tools/dmsetup.static' to '${D}/usr/sbin/dmsetup'!"
 
