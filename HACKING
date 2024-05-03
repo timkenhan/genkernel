@@ -28,7 +28,7 @@ Rolling a release:
     scp genkernel-${PV}.tar.xz ${USER}@dev.gentoo.org:/space/distfiles-local/
 - copy to portage's DISTDIR so you can bump the ebuild
   before the tarball hits distfile mirrors
-  - cp genkernel-${PV}.tar.xz /usr/portage/distfiles/
+  - cp genkernel-${PV}.tar.xz /var/cache/distfiles/
 - Bump the ebuild
 - Propagate ebuild changes to the live ebuild
     diff genkernel-${OLD_PV}.ebuild genkernel-${NEW_PV}.ebuild | patch genkernel-9999.ebuild
