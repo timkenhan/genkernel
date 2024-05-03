@@ -41,7 +41,7 @@ src_configure() {
 }
 
 src_compile() {
-	bbmake busybox
+	gkexec bbmake busybox
 }
 
 src_install() {
