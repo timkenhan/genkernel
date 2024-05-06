@@ -442,14 +442,14 @@ config_kernel() {
 		local cfg_CONFIG_MODULE_COMPRESS_XZ=$(kconfig_get_opt "${KERNEL_OUTPUTDIR}/.config" "CONFIG_MODULE_COMPRESS_XZ")
 		if isTrue "${cfg_CONFIG_MODULE_COMPRESS_GZIP}"
 		then
-			depmod_GZIP=$(/sbin/depmod -V | tr ' ' '\n' | awk '/ZLIB/{print $1; exit}')
+			depmod_GZIP=$(depmod -V | tr ' ' '\n' | awk '/ZLIB/{print $1; exit}')
 			if [[ "${depmod_GZIP}" != "+ZLIB" ]]
 			then
 				gen_die 'depmod does not support ZLIB/GZIP, cannot build with CONFIG_MODULE_COMPRESS_GZIP'
 			fi
 		elif isTrue "${cfg_CONFIG_MODULE_COMPRESS_XZ}"
 		then
-			depmod_XZ=$(/sbin/depmod -V | tr ' ' '\n' | awk '/XZ/{print $1; exit}')
+			depmod_XZ=$(depmod -V | tr ' ' '\n' | awk '/XZ/{print $1; exit}')
 			if [[ "${depmod_XZ}" != "+XZ" ]]
 			then
 				gen_die 'depmod does not support XZ, cannot build with CONFIG_MODULE_COMPRESS_XZ'
